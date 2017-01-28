@@ -51,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+MIDDLEWARE_CLASSES=MIDDLEWARE
+#Strange issue on my setup. Not sure why. Creating a shallow copy according to http://stackoverflow.com/questions/37949198/wsgirequest-object-has-no-attribute-user-django-admin
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
 TEMPLATES = [

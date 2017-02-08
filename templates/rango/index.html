@@ -10,8 +10,34 @@
       hey there partner! <br />
       <strong>{{ boldmessage }}</strong><br/>
     </div>
+    <h1>Most Liked Categories</h1>
     <div>
-      <a href="/rango/about/">About</a><br />
+      {% if categories %}
+      <ul>
+        {% for category in categories %}
+        <li><a href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+          {% endfor %}
+      </ul>
+        {% else %}
+        <strong>There are no categories present.</strong>
+        {% endif %}
+    </div>
+    <h1>Most Viewed Pages</h1>
+    <div>
+      {% if MostViewed5Pages %}
+      <ul>
+        {% for page in MostViewed5Pages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+          {% endfor %}
+      </ul>
+        {% else %}
+        <strong>There are no pages present.</strong>
+        {% endif %}
+    </div>
+
+
+    <div>
+      <a href="/about/">About</a><br />
       <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
     </div>
   </div>
